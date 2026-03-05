@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
-import { STEPS } from '@/src/constants';
-import sinaisImg from '@/src/lib/assets/icones/icones_site/Novos Icons/sinais.png';
-import cenariosImg from '@/src/lib/assets/icones/icones_site/Novos Icons/cenarios.png';
-import prototipagemImg from '@/src/lib/assets/icones/icones_site/Novos Icons/prototipagemnarrativa.png';
-import experienciaImg from '@/src/lib/assets/icones/icones_site/Novos Icons/experienciaimersiva.png';
+import { STEPS } from '../constants';
+import sinaisImg from '../lib/assets/icones/icones_site/Novos Icons/sinais.png';
+import cenariosImg from '../lib/assets/icones/icones_site/Novos Icons/cenarios.png';
+import prototipagemImg from '../lib/assets/icones/icones_site/Novos Icons/prototipagemnarrativa.png';
+import experienciaImg from '../lib/assets/icones/icones_site/Novos Icons/experienciaimersiva.png';
+import { useTextSizes } from '../hooks/useTextSizes';
 
 export function HowWeWork() {
+  const {
+    sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
+    bodyText, bodyMaxWidth, bodyLineHeight,
+    metaText, metaLetterSpacing
+  } = useTextSizes();
+
   const getIcon = (id: string) => {
     switch (id) {
       case 'sinais': return sinaisImg;
@@ -17,18 +24,47 @@ export function HowWeWork() {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-12">
-      <div className="col-span-12 md:col-span-5">
-        <h2 className="text-6xl md:text-8xl leading-tight mb-8">Como a gente trabalha</h2>
-        <p className="text-xl text-neutral-gray font-light leading-relaxed max-w-md mb-12">
+    <div
+      className="grid grid-cols-12 gap-12"
+      style={{ textAlign: sectionAlign as any }}
+    >
+      <div className={`col-span-12 md:col-span-5 ${sectionAlign === 'right' ? 'md:order-2' : ''}`}>
+        <h2
+          className="leading-tight mb-8"
+          style={{
+            fontSize: `${sectionTitle}px`,
+            lineHeight: sectionTitleLineHeight,
+            maxWidth: `${sectionTitleMaxWidth}px`,
+            marginLeft: sectionAlign === 'left' ? '0' : 'auto',
+            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+          }}
+        >
+          Como a gente trabalha
+        </h2>
+        <p
+          className="text-neutral-gray font-light leading-relaxed mb-12"
+          style={{
+            fontSize: `${bodyText}px`,
+            lineHeight: bodyLineHeight,
+            maxWidth: `${bodyMaxWidth}px`,
+            marginLeft: sectionAlign === 'left' ? '0' : 'auto',
+            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+          }}
+        >
           Nossa metodologia combina futurologia, design especulativo e facilitação imersiva para transformar organizações que precisam decidir hoje sobre o amanhã.
         </p>
-        <button className="px-8 py-4 bg-neutral-gray/20 text-soft-black rounded-full text-sm font-medium hover:bg-neutral-gray/30 transition-all">
+        <button
+          className="px-8 py-4 bg-neutral-gray/20 text-soft-black rounded-full font-medium hover:bg-neutral-gray/30 transition-all"
+          style={{
+            fontSize: `${metaText}px`,
+            letterSpacing: `${metaLetterSpacing}px`
+          }}
+        >
           Quero desenhar uma experiência
         </button>
       </div>
 
-      <div className="col-span-12 md:col-span-7 space-y-12">
+      <div className="col-span-12 md:col-span-7 space-y-12 text-left">
         {STEPS.map((step, idx) => (
           <motion.div
             key={step.id}
@@ -51,7 +87,13 @@ export function HowWeWork() {
                 <img src={getIcon(step.id)} alt={step.title} className="w-8 h-8 object-contain opacity-40 group-hover:opacity-100 transition-opacity" />
                 <h3 className="text-4xl group-hover:translate-x-2 transition-transform">{step.title}</h3>
               </div>
-              <p className="text-neutral-gray max-w-lg leading-relaxed ml-12">
+              <p
+                className="text-neutral-gray max-w-lg leading-relaxed ml-12"
+                style={{
+                  fontSize: `${bodyText}px`,
+                  lineHeight: bodyLineHeight
+                }}
+              >
                 {step.description}
               </p>
             </div>

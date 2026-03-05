@@ -1,22 +1,51 @@
 import { motion } from 'framer-motion';
-import { INGREDIENTS } from '@/src/constants';
-import arteImg from '@/src/lib/assets/icones/icones_site/Novos Icons/arte.png';
-import techImg from '@/src/lib/assets/icones/icones_site/Novos Icons/tecnologia.png';
-import designImg from '@/src/lib/assets/icones/icones_site/Novos Icons/design.png';
-import futureImg from '@/src/lib/assets/icones/icones_site/Novos Icons/estudosdefuturos.png';
+import { INGREDIENTS } from '../constants';
+import arteImg from '../lib/assets/icones/icones_site/Novos Icons/arte.png';
+import techImg from '../lib/assets/icones/icones_site/Novos Icons/tecnologia.png';
+import designImg from '../lib/assets/icones/icones_site/Novos Icons/design.png';
+import futureImg from '../lib/assets/icones/icones_site/Novos Icons/estudosdefuturos.png';
+import { useTextSizes } from '../hooks/useTextSizes';
 
 export function Ingredients() {
-  return (
-    <div className="grid grid-cols-12 gap-12">
-      <div className="col-span-12 md:col-span-8">
-        <h2 className="text-5xl md:text-7xl mb-4">Ingredientes</h2>
-        <p className="text-xl text-neutral-gray mb-16 max-w-none">Quatro dimensões que se entrelaçam em cada projeto que a gente cria.</p>
+  const {
+    sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
+    bodyText, bodyMaxWidth, bodyLineHeight
+  } = useTextSizes();
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {INGREDIENTS.map((item, idx) => (
+  return (
+    <div
+      className="grid grid-cols-12 gap-12"
+      style={{ textAlign: sectionAlign as any }}
+    >
+      <div className="col-span-12">
+        <h2
+          className="mb-4"
+          style={{
+            fontSize: `${sectionTitle}px`,
+            lineHeight: sectionTitleLineHeight,
+            maxWidth: `${sectionTitleMaxWidth}px`,
+            marginLeft: sectionAlign === 'left' ? '0' : 'auto',
+            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+          }}
+        >
+          Ingredientes
+        </h2>
+        <p
+          className="text-xl text-neutral-gray mb-16"
+          style={{
+            maxWidth: `${bodyMaxWidth}px`,
+            marginLeft: sectionAlign === 'left' ? '0' : 'auto',
+            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+          }}
+        >
+          Quatro dimensões que se entrelaçam em cada projeto que a gente cria.
+        </p>
+
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${sectionAlign === 'center' ? 'justify-items-center' : sectionAlign === 'right' ? 'justify-items-end' : ''}`}>
+          {INGREDIENTS.map((item) => (
             <motion.div
               key={item.id}
-              className="p-8 bg-white/40 backdrop-blur-sm border border-black/5 rounded-2xl hover:bg-white/60 transition-colors group"
+              className="p-8 bg-white/40 backdrop-blur-sm border border-black/5 rounded-2xl hover:bg-white/60 transition-colors group text-left max-w-md w-full"
               whileHover={{ y: -5 }}
             >
               <div className="mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
@@ -26,7 +55,15 @@ export function Ingredients() {
                 {item.id === 'futuros' && <img src={futureImg} alt="Estudos de Futuros" className="w-12 h-12 object-contain" />}
               </div>
               <h3 className="text-2xl mb-2">{item.title}</h3>
-              <p className="text-sm text-neutral-gray leading-relaxed">{item.description}</p>
+              <p
+                className="text-neutral-gray leading-relaxed font-light"
+                style={{
+                  fontSize: `${bodyText}px`,
+                  lineHeight: bodyLineHeight
+                }}
+              >
+                {item.description}
+              </p>
             </motion.div>
           ))}
         </div>
