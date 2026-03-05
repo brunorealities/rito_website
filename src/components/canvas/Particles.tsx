@@ -6,7 +6,7 @@ import { MeshSurfaceSampler } from 'three/examples/jsm/math/MeshSurfaceSampler.j
 import { useControls } from 'leva';
 
 // MODO DEBUG: Troque para 'false' para esconder os controles da tela
-export const DEBUG = true;
+export const DEBUG = false;
 
 // Importação do modelo 3D (asset)
 // Aqui você pode trocar o arquivo .obj que será usado como base para os pontos
