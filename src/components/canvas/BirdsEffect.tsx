@@ -231,9 +231,9 @@ uniform vec3 color;
 uniform float uOpacity;
 
 void main() {
-  // Fake colors for now
+  // Use the uniform color and multiply by z2 for a fake depth/shading effect
   float z2 = 0.2 + ( 4000. - z ) / 4000. * vColor.x;
-  gl_FragColor = vec4( z2, z2, z2, uOpacity );
+  gl_FragColor = vec4( color * z2, uOpacity );
 }
 `;
 
@@ -383,27 +383,33 @@ export function BirdsEffect({ scrollProgress }: { scrollProgress?: number }) {
     alignment: { value: 20.0, min: 0.0, max: 100.0, step: 0.001 },
     cohesion: { value: 20.0, min: 0.0, max: 100.0, step: 0.025 },
     freedom: { value: 0.75, min: 0.0, max: 1.0, step: 0.01 },
-    opacity: { value: 0.05, min: 0.0, max: 1.0, step: 0.01 }
+    opacity: { value: 0.2, min: 0.0, max: 1.0, step: 0.01 },
+    birdColor: '#f5da76'
   });
 
   const birdUniforms = useMemo(() => ({
-    color: { value: new THREE.Color(0xff2200) },
+    color: { value: new THREE.Color('#f5da76') },
     texturePosition: { value: null },
     textureVelocity: { value: null },
     time: { value: 1.0 },
     delta: { value: 0.0 },
-    uOpacity: { value: 0.05 }
+    uOpacity: { value: 0.2 }
   }), []);
 
   useEffect(() => {
+    // Visibility logic: Fade out smoothly based on scroll.
+    const fadeThreshold = 0.25;
+    const fadeIntensity = scrollProgress ? Math.max(0, 1 - scrollProgress / fadeThreshold) : 1;
+
     if (gpuComputeInfo) {
       gpuComputeInfo.velUniforms['separationDistance'].value = controls.separation;
       gpuComputeInfo.velUniforms['alignmentDistance'].value = controls.alignment;
       gpuComputeInfo.velUniforms['cohesionDistance'].value = controls.cohesion;
       gpuComputeInfo.velUniforms['freedomFactor'].value = controls.freedom;
     }
-    birdUniforms.uOpacity.value = controls.opacity;
-  }, [controls, gpuComputeInfo, birdUniforms]);
+    birdUniforms.uOpacity.value = controls.opacity * fadeIntensity;
+    birdUniforms.color.value.set(controls.birdColor);
+  }, [controls, gpuComputeInfo, birdUniforms, scrollProgress]);
 
   const geometry = useMemo(() => new BirdGeometry(), []);
 
