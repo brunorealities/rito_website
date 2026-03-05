@@ -13,9 +13,10 @@ import { Leva } from 'leva';
 import { DEBUG } from './config/debugConfig';
 
 import { useTextSizes } from './hooks/useTextSizes';
-import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-function AppContent() {
+export function AppContent() {
+  const { t } = useLanguage();
   const {
     heroPadding, heroMinHeight,
     ingredientsPadding, ingredientsMinHeight,
@@ -94,14 +95,14 @@ function AppContent() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
-                Pronto para reimaginar o futuro da sua organização?
+                {t('cta.title')}
               </motion.h2>
               <motion.button
                 className="px-12 py-6 bg-soft-black text-warm-white rounded-full text-lg font-medium hover:scale-105 transition-transform"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Quero desenhar uma experiência
+                {t('cta.button')}
               </motion.button>
             </div>
           </Section>
