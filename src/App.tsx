@@ -12,7 +12,14 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { Leva } from 'leva';
 import { DEBUG } from './components/canvas/Particles';
 
+import { useTextSizes } from './hooks/useTextSizes';
+
 export default function App() {
+  const {
+    heroPadding, ingredientsPadding, casesPadding, howWeWorkPadding,
+    manifestoPadding, testimonialsPadding
+  } = useTextSizes();
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -27,9 +34,12 @@ export default function App() {
         hidden={!DEBUG}
         fill={false}
         flat={false}
-        collapsed={true}
+        collapsed={false}
         theme={{
-          sizes: { controlWidth: '160px' },
+          sizes: {
+            controlWidth: '160px',
+            rootWidth: '380px'
+          },
           colors: { accent1: '#888', accent2: '#ccc', accent3: '#eee' }
         }}
       />
@@ -48,27 +58,27 @@ export default function App() {
 
         {/* Content Sections */}
         <div className="relative z-10">
-          <Section id="hero" className="pt-48">
+          <Section id="hero" className="pt-48" paddingY={heroPadding}>
             <Hero />
           </Section>
 
-          <Section id="ingredients">
+          <Section id="ingredients" paddingY={ingredientsPadding}>
             <Ingredients />
           </Section>
 
-          <Section id="cases">
+          <Section id="cases" paddingY={casesPadding}>
             <Cases />
           </Section>
 
-          <Section id="como">
+          <Section id="como" paddingY={howWeWorkPadding}>
             <HowWeWork />
           </Section>
 
-          <Section id="manifesto">
+          <Section id="manifesto" paddingY={manifestoPadding}>
             <Manifesto />
           </Section>
 
-          <Section id="testimonials">
+          <Section id="testimonials" paddingY={testimonialsPadding}>
             <Testimonials />
           </Section>
 

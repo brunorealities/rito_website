@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { useTextSizes } from '../hooks/useTextSizes';
+import marcasImg from '../lib/assets/logo/marcas para o site.png';
 
 export function Hero() {
   const {
     heroTitle, heroTitleMaxWidth, heroTitleLineHeight, heroTitleLetterSpacing,
     heroSubtitle, heroSubtitleMaxWidth, heroSubtitleLineHeight,
-    heroAlign, metaText
+    heroAlign, metaText,
+    brandsMarginTop, brandsMaxWidth, brandsOpacity
   } = useTextSizes();
 
   return (
@@ -73,6 +75,27 @@ export function Hero() {
         <span>Design</span>
         <span>Tecnologia</span>
       </div>
+
+      <motion.div
+        className="col-span-12 border-t border-black/5"
+        style={{
+          marginTop: `${brandsMarginTop}px`,
+          paddingTop: '3rem',
+          opacity: brandsOpacity,
+          width: `${brandsMaxWidth}%`,
+          marginLeft: heroAlign === 'left' ? '0' : 'auto',
+          marginRight: heroAlign === 'right' ? '0' : 'auto'
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: brandsOpacity }}
+        transition={{ delay: 1 }}
+      >
+        <img
+          src={marcasImg}
+          alt="Marcas e Clientes"
+          className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
+        />
+      </motion.div>
     </div>
   );
 }

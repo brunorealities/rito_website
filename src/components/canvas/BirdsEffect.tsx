@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { GPUComputationRenderer } from 'three-stdlib';
 import { useControls } from 'leva';
 
-const WIDTH = 32;
+const WIDTH = 25;
 const BIRDS = WIDTH * WIDTH;
 const BOUNDS = 800;
 const BOUNDS_HALF = BOUNDS / 2;
@@ -379,10 +379,10 @@ export function BirdsEffect({ scrollProgress }: { scrollProgress?: number }) {
 
   // Controls for bird behavior
   const controls = useControls('Bird Flocking Controls', {
-    separation: { value: 20.0, min: 0.0, max: 100.0, step: 1.0 },
-    alignment: { value: 20.0, min: 0.0, max: 100.0, step: 0.001 },
-    cohesion: { value: 20.0, min: 0.0, max: 100.0, step: 0.025 },
-    freedom: { value: 0.75, min: 0.0, max: 1.0, step: 0.01 },
+    separation: { value: 21., min: 0.0, max: 100.0, step: 1.0 },
+    alignment: { value: 54.75, min: 0.0, max: 100.0, step: 0.001 },
+    cohesion: { value: 51.55, min: 0.0, max: 100.0, step: 0.025 },
+    freedom: { value: 0.51, min: 0.0, max: 1.0, step: 0.01 },
     opacity: { value: 0.2, min: 0.0, max: 1.0, step: 0.01 },
     birdColor: '#f5da76'
   });

@@ -1,20 +1,27 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/src/lib/utils';
+import { useTextSizes } from '../hooks/useTextSizes';
 
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  paddingY?: number;
 }
 
-export function Section({ children, className, id }: SectionProps) {
+export function Section({ children, className, id, paddingY = 96 }: SectionProps) {
+
   return (
     <section
       id={id}
       className={cn(
-        "min-h-screen w-full flex flex-col justify-center px-6 md:px-24 py-24 relative overflow-hidden",
+        "min-h-screen w-full flex flex-col justify-center px-6 md:px-24 relative overflow-hidden",
         className
       )}
+      style={{
+        paddingTop: `${paddingY}px`,
+        paddingBottom: `${paddingY}px`
+      }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
