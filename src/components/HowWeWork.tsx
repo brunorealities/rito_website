@@ -12,7 +12,8 @@ export function HowWeWork() {
   const {
     sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
     bodyText, bodyMaxWidth, bodyLineHeight,
-    metaText, metaLetterSpacing
+    metaText, metaLetterSpacing,
+    workStackGap, sectionHeaderGap
   } = useTextSizes();
 
   const getIcon = (id: string) => {
@@ -32,13 +33,14 @@ export function HowWeWork() {
     >
       <div className={`col-span-12 md:col-span-5 ${sectionAlign === 'right' ? 'md:order-2' : ''}`}>
         <h2
-          className="leading-tight mb-8"
+          className="leading-tight"
           style={{
             fontSize: `${sectionTitle}px`,
             lineHeight: sectionTitleLineHeight,
             maxWidth: `${sectionTitleMaxWidth}px`,
             marginLeft: sectionAlign === 'left' ? '0' : 'auto',
-            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+            marginRight: sectionAlign === 'right' ? '0' : 'auto',
+            marginBottom: `${sectionHeaderGap}px`
           }}
         >
           {t('howWeWork.title')}
@@ -66,7 +68,10 @@ export function HowWeWork() {
         </button>
       </div>
 
-      <div className="col-span-12 md:col-span-7 space-y-12 text-left">
+      <div
+        className="col-span-12 md:col-span-7 text-left"
+        style={{ display: 'flex', flexDirection: 'column', gap: `${workStackGap}px` }}
+      >
         {STEPS.map((step, idx) => {
           const steps = t('howWeWork.steps') as any[];
           const translatedStep = steps && steps[idx] ? steps[idx] : step;

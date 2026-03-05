@@ -9,7 +9,8 @@ export function Cases() {
   const {
     sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
     bodyText, bodyMaxWidth, bodyLineHeight,
-    metaText, metaLetterSpacing
+    metaText, metaLetterSpacing,
+    casesGridGap, sectionHeaderGap
   } = useTextSizes();
 
   return (
@@ -24,13 +25,17 @@ export function Cases() {
           lineHeight: sectionTitleLineHeight,
           maxWidth: `${sectionTitleMaxWidth}px`,
           marginLeft: sectionAlign === 'left' ? '0' : 'auto',
-          marginRight: sectionAlign === 'right' ? '0' : 'auto'
+          marginRight: sectionAlign === 'right' ? '0' : 'auto',
+          marginBottom: `${sectionHeaderGap}px`
         }}
       >
         {t('cases.title')}
       </h2>
 
-      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ${sectionAlign === 'center' ? 'justify-items-center' : sectionAlign === 'right' ? 'justify-items-end' : ''}`}>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${sectionAlign === 'center' ? 'justify-items-center' : sectionAlign === 'right' ? 'justify-items-end' : ''}`}
+        style={{ gap: `${casesGridGap}px` }}
+      >
         {CASES.map((item, index) => {
           const items = t('cases.items') as any[];
           const translatedItem = items && items[index] ? items[index] : item;

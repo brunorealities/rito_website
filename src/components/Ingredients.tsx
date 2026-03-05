@@ -11,7 +11,8 @@ export function Ingredients() {
   const { t } = useLanguage();
   const {
     sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
-    bodyText, bodyMaxWidth, bodyLineHeight
+    bodyText, bodyMaxWidth, bodyLineHeight,
+    ingredientsColGap, ingredientsRowGap, sectionHeaderGap
   } = useTextSizes();
 
   return (
@@ -27,23 +28,32 @@ export function Ingredients() {
             lineHeight: sectionTitleLineHeight,
             maxWidth: `${sectionTitleMaxWidth}px`,
             marginLeft: sectionAlign === 'left' ? '0' : 'auto',
-            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+            marginRight: sectionAlign === 'right' ? '0' : 'auto',
+            marginBottom: `${sectionHeaderGap}px`
           }}
         >
           {t('ingredients.title')}
         </h2>
         <p
-          className="text-xl text-neutral-gray mb-16"
+          className="text-xl text-neutral-gray"
           style={{
             maxWidth: `${bodyMaxWidth}px`,
             marginLeft: sectionAlign === 'left' ? '0' : 'auto',
-            marginRight: sectionAlign === 'right' ? '0' : 'auto'
+            marginRight: sectionAlign === 'right' ? '0' : 'auto',
+            marginBottom: `${sectionHeaderGap}px`
           }}
         >
           {t('ingredients.subtitle')}
         </p>
 
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${sectionAlign === 'center' ? 'justify-items-center' : sectionAlign === 'right' ? 'justify-items-end' : ''}`}>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-[minmax(0,28rem)_minmax(0,28rem)] ${sectionAlign === 'center' ? 'justify-center' : sectionAlign === 'right' ? 'justify-end' : 'justify-start'
+            }`}
+          style={{
+            columnGap: `${ingredientsColGap}px`,
+            rowGap: `${ingredientsRowGap}px`
+          }}
+        >
           {INGREDIENTS.map((item, index) => {
             const items = t('ingredients.items') as any[];
             const translatedItem = items && items[index] ? items[index] : item;

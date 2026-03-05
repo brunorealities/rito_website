@@ -16,6 +16,7 @@ export interface TextSizes {
     bodyText: number;
     bodyMaxWidth: number;
     bodyLineHeight: number;
+    metaText: number;
     metaLetterSpacing: number;
     brandsMarginTop: number;
     brandsPaddingTop: number;
@@ -33,6 +34,11 @@ export interface TextSizes {
     manifestoMinHeight: number;
     testimonialsPadding: number;
     testimonialsMinHeight: number;
+    ingredientsColGap: number;
+    ingredientsRowGap: number;
+    casesGridGap: number;
+    workStackGap: number;
+    sectionHeaderGap: number;
 }
 
 export function useTextSizes() {
@@ -80,8 +86,13 @@ export function useTextSizes() {
             manifestoMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Manifesto Min-Height (vh)' },
             testimonialsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Testim Padding' },
             testimonialsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Testim Min-Height (vh)' },
+            ingredientsColGap: { value: 24, min: 0, max: 200, step: 4, label: 'Ingr Col Gap' },
+            ingredientsRowGap: { value: 16, min: 0, max: 200, step: 4, label: 'Ingr Row Gap' },
+            casesGridGap: { value: 24, min: 0, max: 100, step: 4, label: 'Cases Grid Gap' },
+            workStackGap: { value: 48, min: 0, max: 200, step: 4, label: 'Work Steps Gap' },
+            sectionHeaderGap: { value: 64, min: 0, max: 200, step: 4, label: 'Header Margin B' },
         }),
     });
 
-    return sizes;
+    return sizes as TextSizes;
 }
