@@ -9,8 +9,6 @@ import { Navbar } from './components/Navbar';
 import { Section } from './components/Section';
 import { Scene } from './components/canvas/Scene';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Leva } from 'leva';
-import { DEBUG } from './components/canvas/Particles';
 
 import { useTextSizes } from './hooks/useTextSizes';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -34,20 +32,6 @@ function AppContent() {
 
   return (
     <>
-      {/* Painel de Debug persistente no canto da tela */}
-      <Leva
-        hidden={!DEBUG}
-        fill={false}
-        flat={false}
-        collapsed={false}
-        theme={{
-          sizes: {
-            controlWidth: '160px',
-            rootWidth: '380px'
-          },
-          colors: { accent1: '#888', accent2: '#ccc', accent3: '#eee' }
-        }}
-      />
       {/* Persistent WebGL Canvas */}
       <Scene />
 
