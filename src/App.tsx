@@ -13,8 +13,9 @@ import { Leva } from 'leva';
 import { DEBUG } from './components/canvas/Particles';
 
 import { useTextSizes } from './hooks/useTextSizes';
+import { LanguageProvider } from './contexts/LanguageContext';
 
-export default function App() {
+function AppContent() {
   const {
     heroPadding, heroMinHeight,
     ingredientsPadding, ingredientsMinHeight,
@@ -109,5 +110,13 @@ export default function App() {
         </div>
       </main>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useTextSizes } from '../hooks/useTextSizes';
 import marcasImg from '../lib/assets/logo/marcas para o site.png';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Hero() {
+  const { t } = useLanguage();
   const {
     heroTitle, heroTitleMaxWidth, heroTitleLineHeight, heroTitleLetterSpacing,
     heroSubtitle, heroSubtitleMaxWidth, heroSubtitleLineHeight,
@@ -30,7 +32,7 @@ export function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Tecnologias de reimaginação para organizações que precisam decidir no presente.
+          {t('hero.title')}
         </motion.h1>
         <motion.p
           className="text-neutral-gray mb-12 font-light"
@@ -45,7 +47,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Experiências imersivas para vivenciar cenários complexos, criar memória de futuros e mover cultura.
+          {t('hero.subtitle')}
         </motion.p>
         <div className={`flex flex-wrap gap-4 ${heroAlign === 'center' ? 'justify-center' : heroAlign === 'right' ? 'justify-end' : 'justify-start'}`}>
           <motion.button
@@ -53,27 +55,27 @@ export function Hero() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Quero desenhar uma experiência
+            {t('hero.cta1')}
           </motion.button>
           <motion.button
             className="px-8 py-4 border border-soft-black text-soft-black rounded-full text-sm font-medium hover:bg-soft-black hover:text-warm-white transition-all"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Ver Cases
+            {t('hero.cta2')}
           </motion.button>
         </div>
       </div>
 
       <div
-        className="col-span-12 mt-24 flex justify-between items-end uppercase tracking-widest text-neutral-gray opacity-50"
+        className="col-span-12 mt-24 flex justify-between items-end uppercase tracking-widest text-neutral-gray opacity-50 flex-wrap gap-4"
         style={{ fontSize: `${metaText}px` }}
       >
-        <span>Desde 2016</span>
-        <span>Estudos de Futuros</span>
-        <span>Arte</span>
-        <span>Design</span>
-        <span>Tecnologia</span>
+        <span>{t('hero.since')}</span>
+        <span>{t('hero.futures')}</span>
+        <span>{t('hero.art')}</span>
+        <span>{t('hero.design')}</span>
+        <span>{t('hero.technology')}</span>
       </div>
 
       <motion.div

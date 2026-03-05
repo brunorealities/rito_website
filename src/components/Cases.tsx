@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { CASES } from '../constants';
 import logoSimbolo from '../lib/assets/logo/logo_simbolo.png';
 import { useTextSizes } from '../hooks/useTextSizes';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Cases() {
+  const { t } = useLanguage();
   const {
     sectionTitle, sectionTitleMaxWidth, sectionTitleLineHeight, sectionAlign,
     bodyText, bodyMaxWidth, bodyLineHeight,
@@ -25,63 +27,68 @@ export function Cases() {
           marginRight: sectionAlign === 'right' ? '0' : 'auto'
         }}
       >
-        Cases
+        {t('cases.title')}
       </h2>
 
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ${sectionAlign === 'center' ? 'justify-items-center' : sectionAlign === 'right' ? 'justify-items-end' : ''}`}>
-        {CASES.map((item) => (
-          <motion.div
-            key={item.id}
-            className="group cursor-pointer text-left w-full"
-            whileHover={{ y: -10 }}
-          >
-            <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-6 relative">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-soft-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-8">
-                <p
-                  className="text-warm-white text-center font-light leading-relaxed"
-                  style={{
-                    fontSize: `${bodyText}px`,
-                    lineHeight: bodyLineHeight,
-                    maxWidth: `${bodyMaxWidth}px`
-                  }}
-                >
-                  {item.description}
-                </p>
+        {CASES.map((item, index) => {
+          const items = t('cases.items') as any[];
+          const translatedItem = items && items[index] ? items[index] : item;
+
+          return (
+            <motion.div
+              key={item.id}
+              className="group cursor-pointer text-left w-full"
+              whileHover={{ y: -10 }}
+            >
+              <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-6 relative">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-soft-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-8">
+                  <p
+                    className="text-warm-white text-center font-light leading-relaxed"
+                    style={{
+                      fontSize: `${bodyText}px`,
+                      lineHeight: bodyLineHeight,
+                      maxWidth: `${bodyMaxWidth}px`
+                    }}
+                  >
+                    {translatedItem.description}
+                  </p>
+                </div>
+                <div className="absolute top-4 left-4">
+                  <span
+                    className="px-3 py-1 bg-white/20 backdrop-blur-md text-white rounded-full tracking-widest uppercase"
+                    style={{
+                      fontSize: `${metaText}px`,
+                      letterSpacing: `${metaLetterSpacing}px`
+                    }}
+                  >
+                    {item.tag}
+                  </span>
+                </div>
               </div>
-              <div className="absolute top-4 left-4">
+              <div className="space-y-1">
                 <span
-                  className="px-3 py-1 bg-white/20 backdrop-blur-md text-white rounded-full tracking-widest uppercase"
+                  className="text-neutral-gray uppercase tracking-widest"
                   style={{
                     fontSize: `${metaText}px`,
                     letterSpacing: `${metaLetterSpacing}px`
                   }}
                 >
-                  {item.tag}
+                  Rito
                 </span>
+                <h3 className="text-xl leading-tight group-hover:underline underline-offset-4 decoration-1">
+                  {translatedItem.title}
+                </h3>
               </div>
-            </div>
-            <div className="space-y-1">
-              <span
-                className="text-neutral-gray uppercase tracking-widest"
-                style={{
-                  fontSize: `${metaText}px`,
-                  letterSpacing: `${metaLetterSpacing}px`
-                }}
-              >
-                Rito
-              </span>
-              <h3 className="text-xl leading-tight group-hover:underline underline-offset-4 decoration-1">
-                {item.title}
-              </h3>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="pt-12 flex justify-center opacity-30">

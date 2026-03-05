@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import logoSimbolo from '@/src/lib/assets/logo/logo_simbolo.png';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Manifesto() {
+  const { t } = useLanguage();
+
   return (
     <div className="max-w-4xl mx-auto text-center py-24">
       <motion.h2
@@ -10,15 +13,15 @@ export function Manifesto() {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
       >
-        Mapear. Imaginar. Sistematizar. Ilustrar. Experimentar.
+        {t('manifesto.title')}
       </motion.h2>
 
       <div className="space-y-8 text-xl md:text-2xl text-neutral-gray font-light leading-relaxed max-w-2xl mx-auto">
         <p>
-          Futurologia não é prever o que vai acontecer. É ampliar o campo do possível para que as organizações tomem decisões mais corajosas e mais bem fundamentadas ainda no presente.
+          {t('manifesto.paragraph1')}
         </p>
         <p>
-          A Rito traduz esse método em experiências que o corpo e a emoção entendem antes da cabeça decidir.
+          {t('manifesto.paragraph2')}
         </p>
       </div>
 
