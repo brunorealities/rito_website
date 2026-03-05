@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { useMemo, useRef, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { GPUComputationRenderer } from 'three-stdlib';
-import { useControls } from 'leva';
+import { useBirdsControls } from '../../hooks/useBirdsControls';
 
 const WIDTH = 25;
 const BIRDS = WIDTH * WIDTH;
@@ -378,14 +378,8 @@ export function BirdsEffect({ scrollProgress }: { scrollProgress?: number }) {
   }, [gl]);
 
   // Controls for bird behavior
-  const controls = useControls('Bird Flocking Controls', {
-    separation: { value: 21., min: 0.0, max: 100.0, step: 1.0 },
-    alignment: { value: 54.75, min: 0.0, max: 100.0, step: 0.001 },
-    cohesion: { value: 51.55, min: 0.0, max: 100.0, step: 0.025 },
-    freedom: { value: 0.51, min: 0.0, max: 1.0, step: 0.01 },
-    opacity: { value: 0.2, min: 0.0, max: 1.0, step: 0.01 },
-    birdColor: '#f5da76'
-  });
+  // Controles dos pássaros agora organizados em um hook independente
+  const controls = useBirdsControls();
 
   const birdUniforms = useMemo(() => ({
     color: { value: new THREE.Color('#f5da76') },
