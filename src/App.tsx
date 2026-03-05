@@ -16,8 +16,12 @@ import { useTextSizes } from './hooks/useTextSizes';
 
 export default function App() {
   const {
-    heroPadding, ingredientsPadding, casesPadding, howWeWorkPadding,
-    manifestoPadding, testimonialsPadding
+    heroPadding, heroMinHeight,
+    ingredientsPadding, ingredientsMinHeight,
+    casesPadding, casesMinHeight,
+    howWeWorkPadding, howWeWorkMinHeight,
+    manifestoPadding, manifestoMinHeight,
+    testimonialsPadding, testimonialsMinHeight
   } = useTextSizes();
 
   const { scrollYProgress } = useScroll();
@@ -58,27 +62,27 @@ export default function App() {
 
         {/* Content Sections */}
         <div className="relative z-10">
-          <Section id="hero" className="pt-48" paddingY={heroPadding}>
+          <Section id="hero" className="pt-48" paddingY={heroPadding} minHeight={heroMinHeight}>
             <Hero />
           </Section>
 
-          <Section id="ingredients" paddingY={ingredientsPadding}>
+          <Section id="ingredients" paddingY={ingredientsPadding} minHeight={ingredientsMinHeight}>
             <Ingredients />
           </Section>
 
-          <Section id="cases" paddingY={casesPadding}>
+          <Section id="cases" paddingY={casesPadding} minHeight={casesMinHeight}>
             <Cases />
           </Section>
 
-          <Section id="como" paddingY={howWeWorkPadding}>
+          <Section id="como" paddingY={howWeWorkPadding} minHeight={howWeWorkMinHeight}>
             <HowWeWork />
           </Section>
 
-          <Section id="manifesto" paddingY={manifestoPadding}>
+          <Section id="manifesto" paddingY={manifestoPadding} minHeight={manifestoMinHeight}>
             <Manifesto />
           </Section>
 
-          <Section id="testimonials" paddingY={testimonialsPadding}>
+          <Section id="testimonials" paddingY={testimonialsPadding} minHeight={testimonialsMinHeight}>
             <Testimonials />
           </Section>
 

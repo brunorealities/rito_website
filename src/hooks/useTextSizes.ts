@@ -16,16 +16,23 @@ export interface TextSizes {
     bodyText: number;
     bodyMaxWidth: number;
     bodyLineHeight: number;
-    metaText: number;
+    metaLetterSpacing: number;
     brandsMarginTop: number;
+    brandsPaddingTop: number;
     brandsMaxWidth: number;
     brandsOpacity: number;
     heroPadding: number;
+    heroMinHeight: number;
     ingredientsPadding: number;
+    ingredientsMinHeight: number;
     casesPadding: number;
+    casesMinHeight: number;
     howWeWorkPadding: number;
+    howWeWorkMinHeight: number;
     manifestoPadding: number;
+    manifestoMinHeight: number;
     testimonialsPadding: number;
+    testimonialsMinHeight: number;
 }
 
 export function useTextSizes() {
@@ -43,6 +50,7 @@ export function useTextSizes() {
             heroAlign: { options: { Left: 'left', Center: 'center', Right: 'right' }, value: 'left', label: 'Alignment' },
 
             brandsMarginTop: { value: 64, min: 0, max: 200, step: 4, label: 'Brands Top (px)' },
+            brandsPaddingTop: { value: 48, min: 0, max: 150, step: 4, label: 'Brands Space (px)' },
             brandsMaxWidth: { value: 100, min: 10, max: 100, step: 5, label: 'Brands Width (%)' },
             brandsOpacity: { value: 0.7, min: 0, max: 1, step: 0.05, label: 'Brands Opacity' },
         }),
@@ -60,12 +68,18 @@ export function useTextSizes() {
             metaLetterSpacing: { value: 2, min: 0, max: 10, step: 0.5, label: 'Meta Spacing' },
         }),
         Layout: folder({
-            heroPadding: { value: 240, min: 0, max: 400, step: 8, label: 'Hero Padding (px)' },
-            ingredientsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Ingredients Padding (px)' },
-            casesPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Cases Padding (px)' },
-            howWeWorkPadding: { value: 96, min: 0, max: 400, step: 8, label: 'HowWeWork Padding (px)' },
-            manifestoPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Manifesto Padding (px)' },
-            testimonialsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Testimonials Padding (px)' },
+            heroPadding: { value: 240, min: 0, max: 400, step: 8, label: 'Hero Padding' },
+            heroMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Hero Min-Height (vh)' },
+            ingredientsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Ingr Padding' },
+            ingredientsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Ingr Min-Height (vh)' },
+            casesPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Cases Padding' },
+            casesMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Cases Min-Height (vh)' },
+            howWeWorkPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Work Padding' },
+            howWeWorkMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Work Min-Height (vh)' },
+            manifestoPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Manifesto Padding' },
+            manifestoMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Manifesto Min-Height (vh)' },
+            testimonialsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Testim Padding' },
+            testimonialsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Testim Min-Height (vh)' },
         }),
     });
 

@@ -7,7 +7,7 @@ export function Hero() {
     heroTitle, heroTitleMaxWidth, heroTitleLineHeight, heroTitleLetterSpacing,
     heroSubtitle, heroSubtitleMaxWidth, heroSubtitleLineHeight,
     heroAlign, metaText,
-    brandsMarginTop, brandsMaxWidth, brandsOpacity
+    brandsMarginTop, brandsPaddingTop, brandsMaxWidth, brandsOpacity
   } = useTextSizes();
 
   return (
@@ -80,7 +80,7 @@ export function Hero() {
         className="col-span-12 border-t border-black/5"
         style={{
           marginTop: `${brandsMarginTop}px`,
-          paddingTop: '3rem',
+          paddingTop: `${brandsPaddingTop}px`,
           opacity: brandsOpacity,
           width: `${brandsMaxWidth}%`,
           marginLeft: heroAlign === 'left' ? '0' : 'auto',
