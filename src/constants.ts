@@ -34,6 +34,7 @@ export const CASES: Case[] = [
     tag: 'ART DIRECTION',
     description: 'Experiência imersiva que transporta participantes para cenários futuros da genética, explorando dilemas éticos.',
     image: 'https://mir-s3-cdn-cf.behance.net/projects/404/82415a93612165.Y3JvcCw0NjYzLDM2NDcsNDA0LDA.jpg',
+    link: 'https://www.behance.net/gallery/93612165/Alt-G-O-Futuro-da-Gentica',
   },
   {
     id: '2',
@@ -41,6 +42,7 @@ export const CASES: Case[] = [
     tag: 'INSTALAÇÃO',
     description: 'Instalação artística que explora as fronteiras entre inteligência humana e artificial.',
     image: 'https://mir-s3-cdn-cf.behance.net/projects/404/72789d89938465.Y3JvcCw0MTc1LDMyNjYsNzEzLDA.jpg',
+    link: 'https://www.behance.net/gallery/89938465/Instalacao-Inteligencias-Criadoras',
   },
   {
     id: '3',
@@ -48,6 +50,7 @@ export const CASES: Case[] = [
     tag: 'PERFORMING ARTS',
     description: 'Teatro imersivo que transporta a plateia para um dia cotidiano em 2037.',
     image: 'https://mir-s3-cdn-cf.behance.net/projects/404/aa2eec82519135.Y3JvcCwxMTkyLDkzMywyLDA.jpg',
+    link: 'https://www.behance.net/gallery/82519135/Um-dia-em-2037',
   },
   {
     id: '4',
@@ -55,6 +58,7 @@ export const CASES: Case[] = [
     tag: 'INTERACTIVE DESIGN',
     description: 'Curta de ficção científica interativo que imagina o futuro da comunicação digital.',
     image: 'https://mir-s3-cdn-cf.behance.net/projects/404/9df18681819345.Y3JvcCw5MjAsNzIwLDc5LDA.jpg',
+    link: 'https://www.behance.net/gallery/81819345/Sci-fi-Feel-O-Futuro-da-Comunicacao-online',
   },
 ];
 

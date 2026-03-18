@@ -20,9 +20,6 @@ export function Manifesto() {
         <p>
           {t('manifesto.paragraph1')}
         </p>
-        <p>
-          {t('manifesto.paragraph2')}
-        </p>
       </div>
 
       <div className="mt-24 flex justify-center opacity-30">

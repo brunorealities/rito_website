@@ -7,38 +7,42 @@ export const pt: Translations = {
         work: "Trabalho",
         process: "Processo",
         about: "Sobre",
+        portfolio: "Portfolio",
+        como: "Como",
         contact: "Contato"
     },
     hero: {
-        title: "Tecnologias de reimaginação para organizações que precisam decidir no presente.",
-        subtitle: "Experiências imersivas para vivenciar cenários complexos, criar memória de futuros e mover cultura.",
+        title: "Tecnologias de Reimaginação",
+        subtitle: "Experiências imersivas para vivenciar cenários complexos, criar memória de futuros e impactar culturas.",
         cta1: "Quero desenhar uma experiência",
-        cta2: "Ver Cases",
-        since: "Desde 2016",
-        futures: "Estudos de Futuros",
+        cta2: "Ver portfolio",
+        since: "Desde 2016 criando experiências para grandes organizações",
+        futures: "Futuros",
         art: "Arte",
         design: "Design",
         technology: "Tecnologia"
     },
     ingredients: {
-        title: "Ingredientes",
-        subtitle: "Quatro dimensões que se entrelaçam em cada projeto que a gente cria.",
-        items: [
+        lead: "Somos um estúdio criativo de imaginação estratégica e futuros experienciais.",
+        description: "Projetamos experiências e cenários que ajudam organizações, governos e comunidades a visualizar e construir futuros mais criativos e resilientes.",
+        columns: [
             {
-                title: "Arte",
-                description: "A linguagem que move. Criamos experiências estéticas que abrem percepção antes de qualquer argumento racional."
+                title: "REIMAGINAÇÃO ESTRATÉGICA",
+                subtitle: "Para expandir a visão, mergulhar em sinais de futuros e cocriar caminhos inéditos.",
+                items: [
+                    "WORKSHOPS E IMERSÕES",
+                    "JOGOS ESPECULATIVOS",
+                    "FORESIGHT PARA TOMADA DE DECISÕES"
+                ]
             },
             {
-                title: "Tecnologia",
-                description: "Ferramenta, não fim. Usamos tecnologia como mediadora de mundos para tornar o invisível habitável."
-            },
-            {
-                title: "Design",
-                description: "Forma que gera sentido. Cada detalhe tem intenção: guiar a experiência sem que ela perceba que está sendo guiada."
-            },
-            {
-                title: "Estudos de Futuros",
-                description: "Método de pensar o amanhã hoje. Mapeamos sinais, construímos cenários e tornamos o futuro algo que se pode tocar."
+                title: "FUTUROS EXPERIENCIAIS",
+                subtitle: "Para experimentar futuros na pele, provocar reflexões profundas, encantar e engajar.",
+                items: [
+                    "INSTALAÇÕES E PERFORMANCES",
+                    "DESIGN DE ARTEFATOS",
+                    "NARRATIVAS TRANSMÍDIA"
+                ]
             }
         ]
     },
@@ -89,8 +93,7 @@ export const pt: Translations = {
     },
     manifesto: {
         title: "Mapear. Imaginar. Sistematizar. Ilustrar. Experimentar.",
-        paragraph1: "Futurologia não é prever o que vai acontecer. É ampliar o campo do possível para que as organizações tomem decisões mais corajosas e mais bem fundamentadas ainda no presente.",
-        paragraph2: "A Rito traduz esse método em experiências que o corpo e a emoção entendem antes da cabeça decidir."
+        paragraph1: "Futurologia não é prever o que vai acontecer. É ampliar o campo do possível  para estimular decisões corajosas e antecipar situações complexas. Fazemos isso através de experiências únicas que sensibilizam e emocionam para criar memórias de futuros e catalisar mudanças no presente. "
     },
     testimonials: {
         title: "O que falam de nós:",
@@ -114,7 +117,10 @@ export const pt: Translations = {
     },
     cta: {
         title: "Pronto para reimaginar o futuro da sua organização?",
-        button: "Quero desenhar uma experiência"
+        button: "Quero desenhar uma experiência",
+        namePlaceholder: "Nome/Organização",
+        emailPlaceholder: "E-mail",
+        messagePlaceholder: "Mensagem"
     },
     footer: {
         tags: [

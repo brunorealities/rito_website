@@ -57,15 +57,6 @@ export function HowWeWork() {
         >
           {t('howWeWork.description')}
         </p>
-        <button
-          className="px-8 py-4 bg-neutral-gray/20 text-soft-black rounded-full font-medium hover:bg-neutral-gray/30 transition-all"
-          style={{
-            fontSize: `${metaText}px`,
-            letterSpacing: `${metaLetterSpacing}px`
-          }}
-        >
-          {t('howWeWork.cta')}
-        </button>
       </div>
 
       <div

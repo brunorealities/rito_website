@@ -41,9 +41,12 @@ export function Cases() {
           const translatedItem = items && items[index] ? items[index] : item;
 
           return (
-            <motion.div
+            <motion.a
               key={item.id}
-              className="group cursor-pointer text-left w-full"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group cursor-pointer text-left w-full block"
               whileHover={{ y: -10 }}
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-6 relative">
@@ -91,7 +94,7 @@ export function Cases() {
                   {translatedItem.title}
                 </h3>
               </div>
-            </motion.div>
+            </motion.a>
           );
         })}
       </div>

@@ -88,22 +88,62 @@ export function AppContent() {
             <Testimonials />
           </Section>
 
-          <Section id="cta" className="min-h-[60vh]">
-            <div className="flex flex-col items-center justify-center text-center">
+          <Section id="contato" className="min-h-[60vh] bg-[#F4F1ED]">
+            <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto py-24">
               <motion.h2
-                className="text-4xl md:text-6xl mb-12 max-w-2xl"
+                className="text-3xl md:text-5xl font-bold mb-16 text-center text-soft-black"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
               >
                 {t('cta.title')}
               </motion.h2>
-              <motion.button
-                className="px-12 py-6 bg-soft-black text-warm-white rounded-full text-lg font-medium hover:scale-105 transition-transform"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+
+              <motion.form
+                action="https://formsubmit.co/contato@rito.cc"
+                method="POST"
+                className="w-full flex flex-col gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
               >
-                {t('cta.button')}
-              </motion.button>
+                <input type="hidden" name="_subject" value="Novo contato pelo site Rito!" />
+                <input type="hidden" name="_captcha" value="false" />
+
+                <div className="flex flex-col md:flex-row gap-6">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={t('cta.namePlaceholder')}
+                    className="w-full bg-white/50 border border-soft-black/20 rounded-md px-6 py-4 text-soft-black placeholder:text-soft-black/50 focus:outline-none focus:border-soft-black transition-colors"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t('cta.emailPlaceholder')}
+                    className="w-full bg-white/50 border border-soft-black/20 rounded-md px-6 py-4 text-soft-black placeholder:text-soft-black/50 focus:outline-none focus:border-soft-black transition-colors"
+                    required
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  placeholder={t('cta.messagePlaceholder')}
+                  rows={5}
+                  className="w-full bg-white/50 border border-soft-black/20 rounded-md px-6 py-4 text-soft-black placeholder:text-soft-black/50 focus:outline-none focus:border-soft-black transition-colors resize-none"
+                  required
+                ></textarea>
+
+                <div className="flex justify-center mt-8">
+                  <button
+                    type="submit"
+                    className="px-10 py-5 bg-soft-black text-warm-white rounded-full text-xs uppercase tracking-widest font-bold hover:bg-opacity-80 transition-all w-full md:w-auto"
+                  >
+                    {t('cta.button')}
+                  </button>
+                </div>
+              </motion.form>
             </div>
           </Section>
 

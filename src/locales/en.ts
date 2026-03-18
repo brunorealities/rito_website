@@ -7,38 +7,42 @@ export const en: Translations = {
         work: "Work",
         process: "Process",
         about: "About",
+        portfolio: "Portfolio",
+        como: "How",
         contact: "Contact"
     },
     hero: {
-        title: "Reimagination technologies for organizations that need to decide in the present.",
-        subtitle: "Immersive experiences to live complex scenarios, create memory of futures and move culture.",
+        title: "Reimagination Technologies",
+        subtitle: "Immersive experiences to live complex scenarios, create memory of futures and impact cultures.",
         cta1: "I want to design an experience",
-        cta2: "View Cases",
-        since: "Since 2016",
-        futures: "Futures Studies",
+        cta2: "View portfolio",
+        since: "Since 2016 creating experiences for large organizations",
+        futures: "Futures",
         art: "Art",
         design: "Design",
         technology: "Technology"
     },
     ingredients: {
-        title: "Ingredients",
-        subtitle: "Four dimensions that intertwine in every project we create.",
-        items: [
+        lead: "We are a creative studio of strategic imagination and experiential futures.",
+        description: "We design experiences and scenarios that help organizations, governments, and communities visualize and build more creative and resilient futures.",
+        columns: [
             {
-                title: "Art",
-                description: "The language that moves. We create aesthetic experiences that open perception before any rational argument."
+                title: "STRATEGIC REIMAGINATION",
+                subtitle: "To expand vision, dive into signals of futures, and co-create unprecedented paths.",
+                items: [
+                    "WORKSHOPS AND IMMERSIONS",
+                    "SPECULATIVE GAMES",
+                    "FORESIGHT FOR DECISION MAKING"
+                ]
             },
             {
-                title: "Technology",
-                description: "A tool, not an end. We use technology as a mediator of worlds to make the invisible inhabitable."
-            },
-            {
-                title: "Design",
-                description: "Form that generates meaning. Every detail has an intention: to guide the experience without it realizing it's being guided."
-            },
-            {
-                title: "Futures Studies",
-                description: "A method of thinking about tomorrow today. We map signals, build scenarios, and make the future something you can touch."
+                title: "EXPERIENTIAL FUTURES",
+                subtitle: "To experience futures on the skin, provoke deep reflections, enchant, and engage.",
+                items: [
+                    "INSTALLATIONS AND PERFORMANCES",
+                    "ARTIFACT DESIGN",
+                    "TRANSMEDIA NARRATIVES"
+                ]
             }
         ]
     },
@@ -88,9 +92,8 @@ export const en: Translations = {
         ]
     },
     manifesto: {
-        title: "Map. Imagine. Systematize. Illustrate. Experience.",
-        paragraph1: "Futurology is not about predicting what will happen. It is expanding the realm of the possible so organizations can make braver and better-founded decisions in the present.",
-        paragraph2: "Rito translates this method into experiences the body and emotion understand before the mind decides."
+        title: "Map. Imagine. Systematize. Ilustrate. Experience.",
+        paragraph1: "Futurology is not about predicting what will happen. It is about expanding the field of possibilities to stimulate courageous decisions and anticipate complex situations. We do this through unique experiences that engage the senses and emotions, creating memories of the future and catalyzing change in the present.",
     },
     testimonials: {
         title: "What they say about us:",
@@ -114,7 +117,10 @@ export const en: Translations = {
     },
     cta: {
         title: "Ready to reimagine your organization's future?",
-        button: "I want to design an experience"
+        button: "I want to design an experience",
+        namePlaceholder: "Name/Organization",
+        emailPlaceholder: "Email",
+        messagePlaceholder: "Message"
     },
     footer: {
         tags: [

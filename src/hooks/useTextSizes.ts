@@ -74,7 +74,7 @@ export function useTextSizes() {
             metaLetterSpacing: { value: 2, min: 0, max: 10, step: 0.5, label: 'Meta Spacing' },
         }),
         Layout: folder({
-            heroPadding: { value: 240, min: 0, max: 400, step: 8, label: 'Hero Padding' },
+            heroPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Hero Padding' },
             heroMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Hero Min-Height (vh)' },
             ingredientsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Ingr Padding' },
             ingredientsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Ingr Min-Height (vh)' },
