@@ -22,7 +22,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-8 md:gap-12 text-[10px] uppercase tracking-widest font-bold">
         <div className="hidden md:flex items-center gap-12">
-          <a href="#hero" className="hover:opacity-60 transition-opacity">{t('nav.about')}</a>
+          <a href="#ingredients" className="hover:opacity-60 transition-opacity">{t('nav.about')}</a>
           <a href="#cases" className="hover:opacity-60 transition-opacity">{t('nav.portfolio')}</a>
           <a href="#como" className="hover:opacity-60 transition-opacity">{t('nav.como')}</a>
           <a href="#contato" className="hover:opacity-60 transition-opacity">{t('nav.contact')}</a>

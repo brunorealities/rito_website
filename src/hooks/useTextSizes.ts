@@ -5,9 +5,20 @@ export interface TextSizes {
     heroTitleMaxWidth: number;
     heroTitleLineHeight: number;
     heroTitleLetterSpacing: number;
+    heroTitleSizeMin: number;
+    heroTitleSizeVw: number;
+    heroTitleSizeMax: number;
+    heroMarginBottom: number;
+    heroLeftColSpan: number;
+    heroRightColSpan: number;
+    heroIconSize: number;
+    heroSubtitleMarginTop: number;
     heroSubtitle: number;
     heroSubtitleMaxWidth: number;
     heroSubtitleLineHeight: number;
+    heroBrandsWidth: number;
+    heroTitleMarginRight: number;
+    heroSubtitleMarginLeft: number;
     heroAlign: 'left' | 'center' | 'right';
     sectionTitle: number;
     sectionTitleMaxWidth: number;
@@ -45,13 +56,29 @@ export function useTextSizes() {
     const sizes = useControls('Typography', {
         Hero: folder({
             heroTitle: { value: 66, min: 40, max: 200, step: 2, label: 'Size (px)' },
-            heroTitleMaxWidth: { value: 800, min: 400, max: 2000, step: 50, label: 'Max Width (px)' },
-            heroTitleLineHeight: { value: 1.0, min: 0.5, max: 2.0, step: 0.05, label: 'Line Height' },
-            heroTitleLetterSpacing: { value: -1.5, min: -10, max: 10, step: 0.5, label: 'Letter Spacing' },
+            heroTitleMaxWidth: { value: 900, min: 400, max: 2000, step: 50, label: 'Max Width (px)' },
+            heroTitleLineHeight: { value: 0.95, min: 0.5, max: 2.0, step: 0.05, label: 'Line Height' },
+            heroTitleLetterSpacing: { value: 0.07, min: -0.1, max: 0.1, step: 0.01, label: 'Letter Spacing (em)' },
 
-            heroSubtitle: { value: 26, min: 12, max: 60, step: 1, label: 'Sub Size (px)' },
+            heroTitleSizeMin: { value: 48, min: 20, max: 150, step: 1, label: 'Title Size Min (px)' },
+            heroTitleSizeVw: { value: 6, min: 1, max: 15, step: 0.1, label: 'Title Size (vw)' },
+            heroTitleSizeMax: { value: 96, min: 40, max: 200, step: 1, label: 'Title Size Max (px)' },
+            heroMarginBottom: { value: 40, min: 0, max: 150, step: 2, label: 'Title Margin B. (px)' },
+
+            heroLeftColSpan: { value: 8, min: 1, max: 12, step: 1, label: 'Left Col Span (md)' },
+            heroRightColSpan: { value: 4, min: 1, max: 12, step: 1, label: 'Right Col Span (md)' },
+
+            heroTitleMarginRight: { value: 0, min: 0, max: 400, step: 2, label: 'Título Margin R (px)' },
+            heroSubtitleMarginLeft: { value: 102, min: -200, max: 400, step: 2, label: 'Subtítulo Margin L (px)' },
+
+            heroIconSize: { value: 104, min: 20, max: 150, step: 2, label: 'Icon Size (px)' },
+            heroSubtitleMarginTop: { value: 64, min: 0, max: 200, step: 4, label: 'Subtitle Gap Top (px)' },
+
+            heroSubtitle: { value: 12, min: 5, max: 60, step: 1, label: 'Sub Size (px)' },
             heroSubtitleMaxWidth: { value: 600, min: 200, max: 1200, step: 20, label: 'Sub Max Width' },
-            heroSubtitleLineHeight: { value: 1.2, min: 0.5, max: 2.0, step: 0.05, label: 'Sub Line Height' },
+            heroSubtitleLineHeight: { value: 1.65, min: 0.5, max: 2.0, step: 0.05, label: 'Sub Line Height' },
+
+            heroBrandsWidth: { value: 130, min: 20, max: 170, step: 1, label: 'Tamanho Marcas (%)' },
 
             heroAlign: { options: { Left: 'left', Center: 'center', Right: 'right' }, value: 'left', label: 'Alignment' },
 
@@ -59,40 +86,37 @@ export function useTextSizes() {
             brandsPaddingTop: { value: 48, min: 0, max: 150, step: 4, label: 'Brands Space (px)' },
             brandsMaxWidth: { value: 100, min: 10, max: 100, step: 5, label: 'Brands Width (%)' },
             brandsOpacity: { value: 0.7, min: 0, max: 1, step: 0.05, label: 'Brands Opacity' },
-        }),
-        Sections: folder({
-            sectionTitle: { value: 48, min: 24, max: 120, step: 2, label: 'Title Size (px)' },
-            sectionTitleMaxWidth: { value: 1000, min: 300, max: 1600, step: 50, label: 'Title Max Width' },
-            sectionTitleLineHeight: { value: 1.1, min: 0.5, max: 2.0, step: 0.05, label: 'Title Line Height' },
-            sectionAlign: { options: { Left: 'left', Center: 'center', Right: 'right' }, value: 'left', label: 'Layout Align' },
-
-            bodyText: { value: 18, min: 12, max: 32, step: 1, label: 'Body Size (px)' },
-            bodyMaxWidth: { value: 800, min: 200, max: 1200, step: 20, label: 'Body Max Width' },
-            bodyLineHeight: { value: 1.6, min: 0.5, max: 2.5, step: 0.1, label: 'Body Line Height' },
-
-            metaText: { value: 10, min: 8, max: 16, step: 1, label: 'Meta Size (px)' },
-            metaLetterSpacing: { value: 2, min: 0, max: 10, step: 0.5, label: 'Meta Spacing' },
-        }),
-        Layout: folder({
-            heroPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Hero Padding' },
-            heroMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Hero Min-Height (vh)' },
-            ingredientsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Ingr Padding' },
-            ingredientsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Ingr Min-Height (vh)' },
-            casesPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Cases Padding' },
-            casesMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Cases Min-Height (vh)' },
-            howWeWorkPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Work Padding' },
-            howWeWorkMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Work Min-Height (vh)' },
-            manifestoPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Manifesto Padding' },
-            manifestoMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Manifesto Min-Height (vh)' },
-            testimonialsPadding: { value: 96, min: 0, max: 400, step: 8, label: 'Testim Padding' },
-            testimonialsMinHeight: { value: 100, min: 0, max: 100, step: 5, label: 'Testim Min-Height (vh)' },
-            ingredientsColGap: { value: 24, min: 0, max: 200, step: 4, label: 'Ingr Col Gap' },
-            ingredientsRowGap: { value: 16, min: 0, max: 200, step: 4, label: 'Ingr Row Gap' },
-            casesGridGap: { value: 24, min: 0, max: 100, step: 4, label: 'Cases Grid Gap' },
-            workStackGap: { value: 48, min: 0, max: 200, step: 4, label: 'Work Steps Gap' },
-            sectionHeaderGap: { value: 64, min: 0, max: 200, step: 4, label: 'Header Margin B' },
-        }),
+        })
     });
 
-    return sizes as TextSizes;
+    const hiddenFallbackSizes = {
+        sectionTitle: 48,
+        sectionTitleMaxWidth: 1000,
+        sectionTitleLineHeight: 1.1,
+        sectionAlign: 'left' as const,
+        bodyText: 18,
+        bodyMaxWidth: 800,
+        bodyLineHeight: 1.6,
+        metaText: 10,
+        metaLetterSpacing: 2,
+        heroPadding: 96,
+        heroMinHeight: 100,
+        ingredientsPadding: 96,
+        ingredientsMinHeight: 100,
+        casesPadding: 96,
+        casesMinHeight: 100,
+        howWeWorkPadding: 96,
+        howWeWorkMinHeight: 100,
+        manifestoPadding: 96,
+        manifestoMinHeight: 100,
+        testimonialsPadding: 96,
+        testimonialsMinHeight: 100,
+        ingredientsColGap: 24,
+        ingredientsRowGap: 16,
+        casesGridGap: 24,
+        workStackGap: 48,
+        sectionHeaderGap: 64,
+    };
+
+    return { ...sizes, ...hiddenFallbackSizes } as TextSizes;
 }

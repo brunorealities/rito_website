@@ -47,8 +47,9 @@ export const pt: Translations = {
         ]
     },
     cases: {
-        title: "Cases Reais",
+        title: "Portfolio",
         viewProject: "Ver projeto",
+        viewAllProjects: "Ver todos os projetos",
         items: [
             {
                 title: "Alt-G: O Futuro da Genética",
@@ -69,7 +70,7 @@ export const pt: Translations = {
         ]
     },
     howWeWork: {
-        title: "Como a gente trabalha",
+        title: "Como fazemos",
         description: "Nossa metodologia combina futurologia, design especulativo e facilitação imersiva para transformar organizações que precisam decidir hoje sobre o amanhã.",
         cta: "Quero desenhar uma experiência",
         steps: [
@@ -79,15 +80,15 @@ export const pt: Translations = {
             },
             {
                 title: "Cenários",
-                description: "Construímos múltiplos futuros possíveis, não previsões, mas mundos habitáveis que ampliam o campo de decisão."
+                description: "Construímos múltiplos futuros possíveis, não previsões, mas possibilidades que ampliam o campo de decisão."
             },
             {
                 title: "Prototipagem narrativa",
-                description: "Transformamos cenários em histórias, objetos e experiências físicas que tornam o abstrato concreto."
+                description: "Transformamos cenários em histórias, objetos e experiências físicas que tornam o abstrato concreto e emocionalmente real."
             },
             {
                 title: "Experiência imersiva",
-                description: "A organização vive o futuro antes de decidir sobre ele, criando memória muscular para escolhas estratégicas."
+                description: "Criamos experiências envolventes e memoráveis para vivenciar situações de futuros com todos os sentidos."
             }
         ]
     },
@@ -96,7 +97,7 @@ export const pt: Translations = {
         paragraph1: "Futurologia não é prever o que vai acontecer. É ampliar o campo do possível  para estimular decisões corajosas e antecipar situações complexas. Fazemos isso através de experiências únicas que sensibilizam e emocionam para criar memórias de futuros e catalisar mudanças no presente. "
     },
     testimonials: {
-        title: "O que falam de nós:",
+        title: "Depoimentos:",
         items: [
             {
                 text: "A Rito nos fez ver possibilidades que estavam na nossa frente, mas que a rotina operacional nos impedia de enxergar.",

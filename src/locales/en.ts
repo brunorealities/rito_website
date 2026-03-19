@@ -49,6 +49,7 @@ export const en: Translations = {
     cases: {
         title: "Real Cases",
         viewProject: "View project",
+        viewAllProjects: "View all projects",
         items: [
             {
                 title: "Alt-G: The Future of Genetics",

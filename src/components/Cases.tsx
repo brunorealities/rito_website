@@ -99,8 +99,19 @@ export function Cases() {
         })}
       </div>
 
-      <div className="pt-12 flex justify-center opacity-30">
-        <img src={logoSimbolo} alt="" className="w-16 h-16 object-contain" />
+      <div className="pt-20 flex flex-col items-center gap-16">
+        <a 
+          href="https://www.behance.net/rito-cc"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-8 py-4 border border-soft-black/20 rounded-full text-[10px] tracking-widest uppercase font-bold text-soft-black hover:bg-soft-black hover:text-warm-white transition-all w-full md:w-auto text-center"
+        >
+          {t('cases.viewAllProjects')}
+        </a>
+        
+        <div className="opacity-30">
+          <img src={logoSimbolo} alt="" className="w-16 h-16 object-contain" />
+        </div>
       </div>
     </div>
   );
