@@ -10,21 +10,21 @@ export function Hero() {
   const {
     heroTitleSizeMin, heroTitleSizeVw, heroTitleSizeMax, heroTitleMaxWidth,
     heroTitleLineHeight, heroTitleLetterSpacing, heroMarginBottom,
-    heroLeftColSpan, heroRightColSpan, heroIconSize, heroSubtitleMarginTop,
+    heroSubtitleMarginTop,
     heroSubtitle, heroSubtitleMaxWidth, heroSubtitleLineHeight,
-    heroBrandsWidth, heroTitleMarginRight, heroSubtitleMarginLeft
+    heroTitleMarginRight, heroSubtitleMarginLeft
   } = useTextSizes();
 
   return (
     <div className="relative min-h-[95vh] flex flex-col px-6 md:px-24 pt-32 pb-8 md:pb-12">
       
       {/* Main Content Area - flex-grow pushes footer down */}
-      <div className="flex-grow flex flex-col justify-center pb-12 w-full mx-auto" style={{ maxWidth: '95%' }}>
-        <div className="grid grid-cols-1 md:grid-cols-12 items-center">
+      <div className="flex-grow flex flex-col justify-center pb-2 w-full mx-auto" style={{ maxWidth: '100%' }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 items-center w-full">
           
           {/* LEFT COLUMN - Title + Buttons */}
           <div 
-            className={`md:col-span-${heroLeftColSpan} flex flex-col items-start pr-0`}
+            className="col-span-12 md:col-span-7 flex flex-col items-start pr-0"
             style={{ paddingRight: `${heroTitleMarginRight}px` }}
           >
             <motion.h1
@@ -72,12 +72,12 @@ export function Hero() {
 
           {/* RIGHT COLUMN - Icon + Description text */}
           <div 
-            className={`col-span-12 md:col-span-${heroRightColSpan} flex flex-col items-start justify-center`}
-            style={{ paddingTop: `${heroSubtitleMarginTop}px`, marginLeft: `${heroSubtitleMarginLeft}px` }}
+            className="col-span-12 md:col-span-4 md:col-start-9 flex flex-col items-start justify-center mt-12 md:mt-0"
+            style={{ paddingTop: `${heroSubtitleMarginTop}px`, marginLeft: `${Math.max(0, heroSubtitleMarginLeft - 100)}px` }}
           >
             <motion.div
-              className="bg-soft-black flex items-center justify-center rounded-2xl mb-6 shadow-md"
-              style={{ width: `${heroIconSize}px`, height: `${heroIconSize}px` }}
+              className="bg-soft-black flex items-center justify-center rounded-xl mb-6 shadow-md"
+              style={{ width: `72px`, height: `72px` }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -85,7 +85,7 @@ export function Hero() {
               <img
                 src={logoSymbolRito}
                 alt="RITO"
-                className="h-6 md:h-8 w-auto object-contain brightness-0 invert"
+                className="h-8 w-auto object-contain brightness-0 invert"
               />
             </motion.div>
 
@@ -106,18 +106,21 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom Footer Bar (Natural Flow) */}
+      {/* Bottom Footer Bar */}
       <motion.div
-        className="w-full flex flex-col gap-8 md:gap-12 pt-8"
+        className="w-full flex flex-col pt-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
       >
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center text-[9px] md:text-[10px] text-soft-black/40 uppercase tracking-widest font-bold gap-6">
-          <div>
+        <div className="w-full flex flex-col md:flex-row justify-between items-end mb-3 px-1">
+          {/* Left Text */}
+          <div className="text-[9px] md:text-[10px] text-soft-black/40 uppercase tracking-widest font-bold whitespace-nowrap mb-4 md:mb-0">
             {t('hero.since')}
           </div>
-          <div className="flex flex-wrap gap-6 md:gap-12">
+          
+          {/* Right Labels matching right side of logos */}
+          <div className="w-full md:w-[55%] flex justify-between text-[9px] md:text-[10px] text-soft-black/40 uppercase tracking-[0.2em] font-bold">
             <span>{t('hero.art')}</span>
             <span>{t('hero.design')}</span>
             <span>{t('hero.technology')}</span>
@@ -125,12 +128,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="w-full flex justify-end md:justify-center">
+        <div className="w-full flex justify-center">
           <img
             src={marcasImg}
             alt="Partners"
-            className="h-auto object-contain brightness-0 opacity-[0.65] max-w-none"
-            style={{ width: `${heroBrandsWidth}%` }}
+            className="w-full h-auto object-contain brightness-0 opacity-[0.65]"
           />
         </div>
       </motion.div>

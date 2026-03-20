@@ -58,7 +58,7 @@ export function useTextSizes() {
             heroTitle: { value: 66, min: 40, max: 200, step: 2, label: 'Size (px)' },
             heroTitleMaxWidth: { value: 900, min: 400, max: 2000, step: 50, label: 'Max Width (px)' },
             heroTitleLineHeight: { value: 0.95, min: 0.5, max: 2.0, step: 0.05, label: 'Line Height' },
-            heroTitleLetterSpacing: { value: 0.07, min: -0.1, max: 0.1, step: 0.01, label: 'Letter Spacing (em)' },
+            heroTitleLetterSpacing: { value: -0.08, min: -0.1, max: 0.1, step: 0.01, label: 'Letter Spacing (em)' },
 
             heroTitleSizeMin: { value: 48, min: 20, max: 150, step: 1, label: 'Title Size Min (px)' },
             heroTitleSizeVw: { value: 6, min: 1, max: 15, step: 0.1, label: 'Title Size (vw)' },
