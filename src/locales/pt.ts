@@ -65,7 +65,7 @@ export const pt: Translations = {
             },
             {
                 title: "Sci-fi: Feel — O Futuro da Comunicação",
-                description: "Curta de ficção científica interativo que imagina o futuro da comunicação digital."
+                description: "Teatro imersivo que especula sobre o futuro da comunicação digital."
             }
         ]
     },
