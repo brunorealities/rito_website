@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Hero } from './components/Hero';
 import { Ingredients } from './components/Ingredients';
 import { Cases } from './components/Cases';
@@ -15,6 +16,7 @@ import { FEATURES } from './config/features';
 
 import { useTextSizes } from './hooks/useTextSizes';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { OceanicoPage } from './components/OceanicoPage';
 
 export function AppContent() {
   const { t } = useLanguage();
@@ -33,6 +35,31 @@ export function AppContent() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [isOceanico, setIsOceanico] = useState(false);
+
+  useEffect(() => {
+    const checkPath = () => {
+      const path = window.location.pathname.toLowerCase();
+      setIsOceanico(
+        path === '/oceanico' || 
+        path === '/oceanico/' || 
+        path.endsWith('/oceanico.html') ||
+        path.endsWith('/oceanico/index.html')
+      );
+    };
+
+    checkPath();
+
+    window.addEventListener('popstate', checkPath);
+    return () => {
+      window.removeEventListener('popstate', checkPath);
+    };
+  }, []);
+
+  if (isOceanico) {
+    return <OceanicoPage />;
+  }
 
   return (
     <>
