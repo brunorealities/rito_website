@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/oceanico",
+      "destination": "https://oceanico-site-4z5dazt2n-brunorealitiesxyzgmailcoms-projects.vercel.app/"
+    },
+    {
+      "source": "/oceanico/:path*",
+      "destination": "https://oceanico-site-4z5dazt2n-brunorealitiesxyzgmailcoms-projects.vercel.app/:path*"
+    }
+  ]
+}
