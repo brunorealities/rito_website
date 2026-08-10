@@ -6,9 +6,9 @@ export function Manifesto() {
   const { t } = useLanguage();
 
   return (
-    <div className="max-w-4xl mx-auto text-center py-24">
+    <div className="max-w-4xl min-w-0 mx-auto text-center py-16 sm:py-24">
       <motion.h2
-        className="text-6xl md:text-8xl mb-16 leading-tight"
+        className="text-4xl sm:text-5xl md:text-8xl mb-10 sm:mb-16 leading-tight"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}

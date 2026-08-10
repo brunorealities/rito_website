@@ -14,7 +14,7 @@ export function Section({ children, className, id, paddingY = 96, minHeight = 10
     <section
       id={id}
       className={cn(
-        "w-full flex flex-col justify-center px-6 md:px-24 relative overflow-hidden",
+        "w-full min-w-0 flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden",
         className
       )}
       style={{
@@ -28,7 +28,7 @@ export function Section({ children, className, id, paddingY = 96, minHeight = 10
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-        className="max-w-7xl mx-auto w-full"
+        className="max-w-7xl mx-auto w-full min-w-0"
       >
         {children}
       </motion.div>

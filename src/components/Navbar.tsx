@@ -7,7 +7,7 @@ export function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full z-50 px-6 md:px-24 py-8 flex justify-between items-center text-soft-black"
+      className="fixed top-0 left-0 w-full max-w-full z-50 px-5 sm:px-6 md:px-12 lg:px-24 py-8 flex justify-between items-center text-soft-black"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

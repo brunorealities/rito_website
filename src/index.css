@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -11,18 +12,43 @@
 }
 
 @layer base {
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-warm-white text-soft-black antialiased;
     font-family: var(--font-sans);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     @apply font-medium tracking-tight;
+    overflow-wrap: break-word;
+  }
+
+  p, li, a, button, input, textarea {
+    overflow-wrap: anywhere;
+  }
+
+  img, video, canvas, svg {
+    max-width: 100%;
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
 
 .markdown-body {
   @apply prose prose-neutral max-w-none;

@@ -10,27 +10,25 @@ export function Hero() {
   const {
     heroTitleSizeMin, heroTitleSizeVw, heroTitleSizeMax, heroTitleMaxWidth,
     heroTitleLineHeight, heroTitleLetterSpacing, heroMarginBottom,
-    heroSubtitleMarginTop,
-    heroSubtitle, heroSubtitleMaxWidth, heroSubtitleLineHeight,
-    heroTitleMarginRight, heroSubtitleMarginLeft
+    heroSubtitle,
+    heroSubtitleMaxWidth, heroSubtitleLineHeight
   } = useTextSizes();
 
   return (
-    <div className="relative min-h-[95vh] flex flex-col px-6 md:px-24 pt-32 pb-8 md:pb-12">
+    <div className="relative min-h-[95vh] min-w-0 flex flex-col pt-28 sm:pt-32 pb-8 md:pb-12">
       
       {/* Main Content Area - flex-grow pushes footer down */}
       <div className="flex-grow flex flex-col justify-center pb-2 w-full mx-auto" style={{ maxWidth: '100%' }}>
-        <div className="grid grid-cols-1 md:grid-cols-12 items-center w-full">
+        <div className="grid min-w-0 grid-cols-1 md:grid-cols-12 items-center w-full">
           
           {/* LEFT COLUMN - Title + Buttons */}
           <div 
-            className="col-span-12 md:col-span-7 flex flex-col items-start pr-0"
-            style={{ paddingRight: `${heroTitleMarginRight}px` }}
+            className="col-span-1 min-w-0 md:col-span-7 flex flex-col items-start pr-0"
           >
             <motion.h1
               className="font-bold text-soft-black w-full"
               style={{
-                fontSize: `clamp(${heroTitleSizeMin}px, ${heroTitleSizeVw}vw, ${heroTitleSizeMax}px)`,
+                fontSize: `clamp(${Math.min(heroTitleSizeMin, 36)}px, ${Math.max(heroTitleSizeVw, 10)}vw, ${heroTitleSizeMax}px)`,
                 letterSpacing: `${heroTitleLetterSpacing}em`,
                 lineHeight: heroTitleLineHeight,
                 maxWidth: `${heroTitleMaxWidth}px`,
@@ -72,8 +70,7 @@ export function Hero() {
 
           {/* RIGHT COLUMN - Icon + Description text */}
           <div 
-            className="col-span-12 md:col-span-4 md:col-start-9 flex flex-col items-start justify-center mt-12 md:mt-0"
-            style={{ paddingTop: `${heroSubtitleMarginTop}px`, marginLeft: `${Math.max(0, heroSubtitleMarginLeft - 100)}px` }}
+            className="col-span-1 min-w-0 md:col-span-4 md:col-start-9 flex flex-col items-start justify-center mt-12 md:mt-0"
           >
             <motion.div
               className="bg-soft-black flex items-center justify-center rounded-xl mb-6 shadow-md"
@@ -120,7 +117,7 @@ export function Hero() {
           </div>
           
           {/* Right Labels matching right side of logos */}
-          <div className="w-full md:w-[55%] flex justify-between text-[9px] md:text-[10px] text-soft-black/40 uppercase tracking-[0.2em] font-bold">
+          <div className="w-full md:w-[55%] grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2 sm:gap-4 text-[9px] md:text-[10px] text-soft-black/40 uppercase tracking-[0.12em] sm:tracking-[0.2em] font-bold">
             <span>{t('hero.art')}</span>
             <span>{t('hero.design')}</span>
             <span>{t('hero.technology')}</span>

@@ -28,14 +28,14 @@ export function HowWeWork() {
 
   return (
     <div
-      className="grid grid-cols-12 gap-12"
+      className="grid min-w-0 grid-cols-1 gap-10 md:grid-cols-12 md:gap-12"
       style={{ textAlign: sectionAlign as any }}
     >
-      <div className={`col-span-12 md:col-span-5 ${sectionAlign === 'right' ? 'md:order-2' : ''}`}>
+      <div className={`col-span-1 min-w-0 md:col-span-5 ${sectionAlign === 'right' ? 'md:order-2' : ''}`}>
         <h2
           className="leading-tight"
           style={{
-            fontSize: `${sectionTitle}px`,
+            fontSize: `clamp(2rem, 7vw, ${sectionTitle}px)`,
             lineHeight: sectionTitleLineHeight,
             maxWidth: `${sectionTitleMaxWidth}px`,
             marginLeft: sectionAlign === 'left' ? '0' : 'auto',
@@ -48,7 +48,7 @@ export function HowWeWork() {
         <p
           className="text-neutral-gray font-light leading-relaxed mb-12"
           style={{
-            fontSize: `${bodyText}px`,
+            fontSize: `clamp(1rem, 3vw, ${bodyText}px)`,
             lineHeight: bodyLineHeight,
             maxWidth: `${bodyMaxWidth}px`,
             marginLeft: sectionAlign === 'left' ? '0' : 'auto',
@@ -60,7 +60,7 @@ export function HowWeWork() {
       </div>
 
       <div
-        className="col-span-12 md:col-span-7 text-left"
+        className="col-span-1 min-w-0 md:col-span-7 text-left"
         style={{ display: 'flex', flexDirection: 'column', gap: `${workStackGap}px` }}
       >
         {STEPS.map((step, idx) => {
@@ -70,7 +70,7 @@ export function HowWeWork() {
           return (
             <motion.div
               key={step.id}
-              className="flex gap-8 group"
+              className="flex min-w-0 gap-4 sm:gap-8 group"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -84,15 +84,15 @@ export function HowWeWork() {
                   <div className="w-px h-full bg-neutral-gray/20 mt-4 group-hover:bg-soft-black transition-colors" />
                 )}
               </div>
-              <div className="pb-12 flex-1">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="min-w-0 pb-10 sm:pb-12 flex-1">
+                <div className="flex min-w-0 items-center gap-3 sm:gap-4 mb-4">
                   <img src={getIcon(step.id)} alt={step.title} className="w-8 h-8 object-contain opacity-40 group-hover:opacity-100 transition-opacity" />
-                  <h3 className="text-4xl group-hover:translate-x-2 transition-transform">{translatedStep.title}</h3>
+                  <h3 className="min-w-0 text-2xl sm:text-3xl lg:text-4xl group-hover:translate-x-2 transition-transform">{translatedStep.title}</h3>
                 </div>
                 <p
-                  className="text-neutral-gray max-w-lg leading-relaxed ml-12"
+                  className="text-neutral-gray max-w-lg leading-relaxed ml-0 sm:ml-12"
                   style={{
-                    fontSize: `${bodyText}px`,
+                    fontSize: `clamp(1rem, 3vw, ${bodyText}px)`,
                     lineHeight: bodyLineHeight
                   }}
                 >

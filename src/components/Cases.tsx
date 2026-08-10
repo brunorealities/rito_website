@@ -15,13 +15,13 @@ export function Cases() {
 
   return (
     <div
-      className="space-y-16"
+      className="min-w-0 space-y-12 sm:space-y-16"
       style={{ textAlign: sectionAlign as any }}
     >
       <h2
         className="md:leading-tight"
         style={{
-          fontSize: `${sectionTitle}px`,
+          fontSize: `clamp(2rem, 8vw, ${sectionTitle}px)`,
           lineHeight: sectionTitleLineHeight,
           maxWidth: `${sectionTitleMaxWidth}px`,
           marginLeft: sectionAlign === 'left' ? '0' : 'auto',
@@ -46,7 +46,7 @@ export function Cases() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group cursor-pointer text-left w-full block"
+              className="group cursor-pointer text-left w-full min-w-0 block"
               whileHover={{ y: -10 }}
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-6 relative">
