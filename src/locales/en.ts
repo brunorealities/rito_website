@@ -47,7 +47,7 @@ export const en: Translations = {
         ]
     },
     cases: {
-        title: "Real Cases",
+        title: "Portfolio",
         viewProject: "View project",
         viewAllProjects: "View all projects",
         items: [
@@ -127,7 +127,7 @@ export const en: Translations = {
         tags: [
             "RITO - REIMAGINATION TECHNOLOGIES",
             "2026",
-            "contact@rito.cc",
+            "contato@rito.cc",
             "@rito.cc"
         ]
     }
