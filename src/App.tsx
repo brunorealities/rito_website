@@ -129,10 +129,10 @@ export function AppContent() {
           )}
 
           {FEATURES.showContact && (
-            <Section id="contato" className="min-h-[60vh] bg-[#F4F1ED]">
-              <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto py-24">
+            <Section id="contato" className="min-h-[60vh] bg-[#F4F1ED]" paddingY={48}>
+              <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto py-12 md:py-16">
                 <motion.h2
-                  className="text-3xl md:text-5xl font-bold mb-16 text-center text-soft-black"
+                  className="text-3xl md:text-5xl font-bold mb-10 md:mb-12 text-center text-soft-black"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

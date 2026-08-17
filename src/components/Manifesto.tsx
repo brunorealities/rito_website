@@ -6,7 +6,7 @@ export function Manifesto() {
   const { t } = useLanguage();
 
   return (
-    <div className="max-w-4xl min-w-0 mx-auto text-center py-16 sm:py-24">
+    <div className="max-w-4xl min-w-0 mx-auto text-center py-8 sm:py-12">
       <motion.h2
         className="text-4xl sm:text-5xl md:text-8xl mb-10 sm:mb-16 leading-tight"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -22,7 +22,7 @@ export function Manifesto() {
         </p>
       </div>
 
-      <div className="mt-24 flex justify-center opacity-30">
+      <div className="mt-12 sm:mt-16 flex justify-center opacity-30">
         <img src={logoSimbolo} alt="" className="w-16 h-16 object-contain" />
       </div>
     </div>

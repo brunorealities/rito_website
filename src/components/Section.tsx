@@ -9,7 +9,16 @@ interface SectionProps {
   minHeight?: number;
 }
 
-export function Section({ children, className, id, paddingY = 96, minHeight = 100 }: SectionProps) {
+export function Section({ children, className, id, paddingY = 72, minHeight = 0 }: SectionProps) {
+  const sectionStyle: React.CSSProperties = {
+    paddingTop: `${paddingY}px`,
+    paddingBottom: `${paddingY}px`,
+  };
+
+  if (minHeight > 0) {
+    sectionStyle.minHeight = `${minHeight}vh`;
+  }
+
   return (
     <section
       id={id}
@@ -17,11 +26,7 @@ export function Section({ children, className, id, paddingY = 96, minHeight = 10
         "w-full min-w-0 flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden",
         className
       )}
-      style={{
-        paddingTop: `${paddingY}px`,
-        paddingBottom: `${paddingY}px`,
-        minHeight: minHeight > 0 ? `${minHeight}vh` : 'auto'
-      }}
+      style={sectionStyle}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
